@@ -16,6 +16,7 @@ public class MyComponent extends JComponent {
 		
 	Car c = new Car(0,0, Color.RED);
 	Car c2 = new Car(0,40,Color.BLUE);
+	
 	c.draw(g);
 	c2.draw(g);
 		
