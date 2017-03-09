@@ -11,11 +11,22 @@ import javax.swing.JComponent;
 
 public class MyComponent extends JComponent {
 	
-	static int counter = 0;
+	private static int counter = 0;
 	
-	static MutableCar theCar = new MutableCar(0,0,Color.BLACK, 10, 1);
-	static	Random genRand = new Random();
+	private static MutableCar theCars[];
+	private static	Random genRand = new Random();
+	public static final int laneWidth = 40;
 	
+	private static boolean someCarWon =false;
+	public boolean getSomeCarWon(){return someCarWon;}
+	
+	public MyComponent(int numCars){
+		theCars = new MutableCar[numCars];
+		for(int i = 0; i<numCars; i++){
+			int laneY = i * laneWidth;
+			theCars[i]= new MutableCar(0, laneY, Color.RED, 0, 1 );
+		}
+	}
 	public boolean carCrashed(MutableCar c){
 		return (((c.getCarDirection() >0) && (c.getxPos()+60 >= this.getWidth()))
 				|| 
@@ -32,21 +43,26 @@ public class MyComponent extends JComponent {
 	}
 	
 	public void paintComponent(Graphics g) {
-		
-	theCar.draw(g);
-	theCar.move(theCar.getCarSpeed()*theCar.getCarDirection(),0);
+		int iMax = 0;
+for (int i = 0; i< theCars.length;i++ ){
+			
+	theCars[i].draw(g);
+	theCars[i].move(genRand.nextInt(10), 0);
+	theCars[i].setColor(Color.RED);
 	
-	
-	if(this.carCrashed(theCar)){
-		theCar.setCarDirection(theCar.getCarDirection()*-1);
-		if (this.carReachedTopOrBottom(theCar)){
-			theCar.setCarDirectionY(theCar.getCarDirectionY()*-1);
-		}
-		int deltax = theCar.getCarDirection()*theCar.getCarSpeed();
-	int deltay = theCar.getCarDirectionY()*theCar.getCarSpeedY();
-	
-		theCar.move(deltax, deltay);
+	if (theCars[iMax].getxPos() < theCars[i].getxPos()){
+		iMax = i;
 	}
+	if(this.carCrashed(theCars[i])){
+		someCarWon = true;
+		//if (this.carReachedTopOrBottom(theCar)){
+		//	theCar.setCarDirectionY(theCar.getCarDirectionY()*-1);
+		}
+		//int deltax = theCar.getCarDirection()*theCar.getCarSpeed();
+	//int deltay = theCar.getCarDirectionY()*theCar.getCarSpeedY();
+	
+		//theCar.move(deltax, deltay);
+	//}}
 	/*theCar.setPosition(0, 0);
 	theCar.draw(g);
 	
@@ -57,5 +73,5 @@ public class MyComponent extends JComponent {
 			//	g2.draw(r2);
 		System.out.println("Painted " + counter++ + " times.");
 	}
-
-}
+theCars[iMax].setColor(Color.GREEN);
+}}

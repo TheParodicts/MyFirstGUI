@@ -78,7 +78,13 @@ static long count = 0;
 		this.xPos = xPos;
 		this.yPos = yPos;
 	}
+	public Color getColor(Color c){
+		return this.carColor;
+	}
 	
+	public void setColor(Color c){
+		this.carColor = c;
+	}
 	public void move(int deltax, int deltay){
 		this.xPos = xPos + deltax;
 		this.yPos = yPos + deltay;
