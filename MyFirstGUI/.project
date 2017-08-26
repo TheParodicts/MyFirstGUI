@@ -14,4 +14,16 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/photo/PNGPIX-COM-Turtle-PNG-Transparent-Image-1-500x329.png</name>
+			<type>1</type>
+			<location>C:/Users/brian/Documents/RUM/2016-2017/Segundo Semestre/ICOM/PNGPIX-COM-Turtle-PNG-Transparent-Image-1-500x329.png</location>
+		</link>
+		<link>
+			<name>src/photo/turtle.png</name>
+			<type>1</type>
+			<location>C:/Users/brian/Documents/RUM/2016-2017/Segundo Semestre/ICOM/turtle.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -30,8 +30,6 @@ static long count = 0;
 	
 	public void draw(Graphics g, Color newColor){
 		
-		
-		
 		Point2D.Double rearWindowStart = new Point2D.Double(this.getxPos()+10,this.getyPos()+10);
 		Point2D.Double rearWindowEnd = new Point2D.Double(this.getxPos()+20,this.getyPos()+0);
 		Line2D.Double rearWindow = new Line2D.Double(rearWindowStart, rearWindowEnd);
